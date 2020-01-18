@@ -1,0 +1,92 @@
+{% load static %}
+
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>CPA-API</title>
+        
+
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </head>
+    <body>
+
+        <div id="contner">
+            <div id="myCanvas">
+                <canvas id="canvas"></canvas>
+            </div>
+            <div id="tableau_de_bord">
+                
+                <div >
+                    <form>
+                        <p>Veuillez choisir l'algorithme :</p>
+                        <fieldset id="group1">
+                            <input type="radio" id="ritterChoice"
+                             name="group1" value="ritter">
+                            <label for="ritterChoice">Ritter</label>
+                            
+                             <input type="radio" id="quickhullChoice"
+                            name="group1" value="quickhull">
+                            <label for="quickhullChoice">QuickHull</label>
+                            
+                            <input type="radio" id="convexeChoice"
+                            name="group1" value="convexe">
+                            <label for="convexeChoice">Envloppe Convexe</label>
+                        </fieldset>
+                          
+                        <fieldset id="group2">
+                            <p>Veuillez choisir la partition de points :</p>
+                            <input type="radio" id="choice1"
+                            name="group2" value="liste1">
+                            <label for="choice1">Liste 1(200pts)</label>
+                            
+                            <input type="radio" id="choice2"
+                            name="group2" value="liste2">
+                            <label for="choice2">Liste 2(300pts)</label>
+
+                            <input type="radio" id="choice4"
+                            name="group2" value="liste4">
+                            <label for="choice4">Liste 3(12pts)</label>
+                            
+                            <input type="radio" id="choice3"
+                            name="group2" value="liste3">
+                            <label for="choice3">Other -></label>
+                            <input type="number" name="group2" id="nbrPoints"/>​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
+                        </fieldset>
+                             
+                        <div>
+                          <a id="generate_algo" href='' onclick="generate_algo()" class="btn btn-secondary">Generate</a>
+                        </div>
+                    </form>
+                    </div>
+                    
+                    <br/>
+                    <div>
+                        <p>Generer des points :</p>
+                        <a id="generatePoint_liste1" href='' onclick="generateListe1()" class="btn btn-secondary">Liste 1</a>
+                        <a id="generatePoint_liste2" href='' onclick="generateListe2()" class="btn btn-secondary">Liste 2</a>
+                        <a id="generatePoint_liste3" href='' onclick="generateListe3()" class="btn btn-secondary">Liste 3</a>
+                        
+                            <a id="generatePoint" href='' onclick="generate()" class="btn btn-secondary">Entrez nombre de points -></a>
+                            <input type="number"  id="nbrPoints_g">
+                        
+                    </div>
+                    </div>
+                    
+                </div>
+                <br/>
+
+            </div>
+            <div>
+                
+            </div>
+        
+        </div>
+        <script src = "{% static 'dessinPoints.js' %}"></script>
+        {% block content %}
+        {% endblock %}
+    </body>
+
+</html>
